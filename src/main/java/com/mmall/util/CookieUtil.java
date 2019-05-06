@@ -14,7 +14,7 @@ import javax.servlet.http.HttpServletResponse;
  */
 @Slf4j
 public class CookieUtil {
-    private final static String COOKIE_DOMAIN = ".happymmall.com";
+    private final static String COOKIE_DOMAIN = "happymmall.com";//之前为.开头的domain，现在改成这样是解决tomcat8.5版本的问题
     private final static String COOKIE_NAME = "mmall_login_token";
 
     public static String readLoginCookie(HttpServletRequest request) {
@@ -31,11 +31,18 @@ public class CookieUtil {
         return null;
     }
 
+    //X::domain=".happymmall.com"
+    //a:A.happymmall.com            cookie:domain=A.happymmall.com;path="/"
+    //b:B.happymmall.com            cookie:domain=B.happymmall.com;path="/"
+    //c:C.happymmall.com/test/cc    cookie:domain=A.happymmall.com;path="/test/cc"
+    //d:A.happymmall.com/test/dd    cookie:domain=A.happymmall.com;path="/test/dd"
+    //e:A.happymmall.com/test       cookie:domain=A.happymmall.com;path="/test"
 
     public static void writeLoginToken(HttpServletResponse response, String token) {
         Cookie ck = new Cookie(COOKIE_NAME, token);
         ck.setDomain(COOKIE_DOMAIN);
         ck.setPath("/");//代表根目录，
+        ck.setHttpOnly(true);//防止脚本攻击
         //单位是秒
         //如果不设置，则cookie不会写入硬盘，而是写入内存，只在当前页面有效。
         ck.setMaxAge(60 * 60 * 24 * 365);//当前表示一年。如果是-1，则表示为永久的
