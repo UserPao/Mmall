@@ -3,6 +3,9 @@
 <html>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <body>
+<h2>tomcat111</h2>
+<h2>tomcat111</h2>
+<h2>tomcat111</h2>
 <h2>初始化界面</h2>
 springmvc上传文件
 <form name="form1" action="/manage/product/upload.do" method="post" enctype="multipart/form-data">

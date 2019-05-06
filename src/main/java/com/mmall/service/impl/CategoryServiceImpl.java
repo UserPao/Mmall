@@ -1,5 +1,6 @@
 package com.mmall.service.impl;
 
+import lombok.extern.slf4j.Slf4j;
 import org.slf4j.Logger;
 import com.google.common.collect.Lists;
 import com.google.common.collect.Sets;
@@ -22,8 +23,10 @@ import java.util.Set;
  * @Version 1.0
  */
 @Service("iCategoryService")
+@Slf4j
 public class CategoryServiceImpl implements ICategoryService {
-    private Logger logger = (Logger) LoggerFactory.getLogger(CategoryServiceImpl.class);
+
+//    private Logger logger = (Logger) LoggerFactory.getLogger(CategoryServiceImpl.class);
 
     @Autowired
     private CategoryMapper categoryMapper;
@@ -57,7 +60,7 @@ public class CategoryServiceImpl implements ICategoryService {
     public ServerResponse<List<Category>> getChildrenParallelCategory(Integer categoryId){
         List<Category> categoryList = categoryMapper.selectCategoryChildrenByParentId(categoryId);
         if(CollectionUtils.isEmpty(categoryList)){
-            logger.info("未找到当前分类的子分类");
+            log.info("未找到当前分类的子分类");
         }
         return ServerResponse.createBySuccess(categoryList);
     }
