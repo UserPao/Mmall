@@ -14,7 +14,9 @@ import javax.servlet.http.HttpServletResponse;
  */
 @Slf4j
 public class CookieUtil {
-    private final static String COOKIE_DOMAIN = "happymmall.com";//之前为.开头的domain，现在改成这样是解决tomcat8.5版本的问题
+    //之前为.开头的domain，现在改成这样是解决tomcat8.5版本的问题
+    private final static String COOKIE_DOMAIN = "happymmall.com";
+
     private final static String COOKIE_NAME = "mmall_login_token";
 
     public static String readLoginCookie(HttpServletRequest request) {

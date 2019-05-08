@@ -14,8 +14,6 @@ import java.util.Date;
 public class OrderItem implements Serializable {
     private Integer id;
 
-    private Integer userId;
-
     private Long orderNo;
 
     private Integer productId;
@@ -33,6 +31,8 @@ public class OrderItem implements Serializable {
     private Date createTime;
 
     private Date updateTime;
+
+    private Integer userId;
 
     private static final long serialVersionUID = 1L;
 

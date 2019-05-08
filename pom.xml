@@ -17,7 +17,7 @@
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <maven.compiler.encoding>UTF-8</maven.compiler.encoding>
         <!--定义变量名下边用-->
-        <org.springframework.version>4.0.0.RELEASE</org.springframework.version>
+        <org.springframework.version>4.0.3.RELEASE</org.springframework.version>
         <org.mybatis.version>3.2.1</org.mybatis.version>
         <org.mybatis.spring.version>1.2.0</org.mybatis.spring.version>
         <!--以下两项不知道要不要删除-->
@@ -37,7 +37,7 @@
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-webmvc</artifactId>
-            <version>${org.springframework.version}</version>
+            <version>4.0.4.RELEASE</version>
         </dependency>
 
         <dependency>
@@ -252,6 +252,13 @@
             <artifactId>lombok</artifactId>
             <version>1.16.18</version>
         </dependency>
+        <!--spring session 单点登录-->
+        <dependency>
+            <groupId>org.springframework.session</groupId>
+            <artifactId>spring-session-data-redis</artifactId>
+            <version>1.2.0.RELEASE</version>
+        </dependency>
+
     </dependencies>
 
     <build>
